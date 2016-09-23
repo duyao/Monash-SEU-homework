@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.MainFragment"
+    android:orientation="vertical"
+    android:background="@drawable/image">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Welcome"
+        android:id="@+id/textView12"
+        android:textSize="40sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:id="@+id/curUser_mainFrag"
+        android:textSize="80sp"
+        android:text="Amy"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Thank you for using this app to record calories."
+        android:layout_gravity="bottom"
+        android:textSize="30sp"
+        android:layout_marginTop="40dp"
+        android:gravity="center" />
+
+    <TextClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textClock"
+        android:layout_gravity="bottom|right"
+        android:textSize="50dp"
+        android:typeface="sans"
+        android:singleLine="false"
+        android:gravity="right"
+        android:layout_marginTop="200dp" />
+
+
+</LinearLayout>

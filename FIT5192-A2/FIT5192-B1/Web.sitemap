@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="Default.aspx" title="Home"  description="">
+    <siteMapNode url="#" title="Search"  description="">
+      <siteMapNode url="~/private/SearchRecords.aspx" title="Search Records"  description="" />
+      <siteMapNode url="~/private/DisplayRecords.aspx" title="Display Records"  description="" />
+    </siteMapNode>
+    <siteMapNode url="~/private/Events.aspx" title="Events"  description="" />
+    <siteMapNode url="~/private/sitemap.aspx" title="Sitemap"  description="" />
+    <siteMapNode url="~/private/document.aspx" title="Documentation"  description="" />
+    <siteMapNode url="~/private/contact.aspx" title="Contact"  description="" />
+    <siteMapNode url="~/private/About.aspx" title="About"  description="">
+      <siteMapNode url="~/private/History.aspx" title="Our History"  description="" />
+      <siteMapNode url="~/private/Faq.aspx" title="Frequently Asked Questions"  description="" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

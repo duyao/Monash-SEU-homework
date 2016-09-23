@@ -1,0 +1,129 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="preloader" runat="server">
+        </asp:ContentPlaceHolder>
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="Default.aspx">SOLID.</a>
+
+                </div>
+                <div class="navbar-collapse collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="Defalut.aspx">HOME</a></li>
+                        <li><a href="Register.aspx">REGISTRATION</a></li>
+                        <li class="dropdown">
+                            <a href="About.aspx" class="dropdown-toggle" data-toggle="dropdown">ABOUT<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="History.aspx">OUR HISTORY</a></li>
+                                <li><a href="Faq.aspx">FAQ</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Sitemap.aspx">SITE MAP</a></li>
+                        <li><a href="Document.aspx">DOCUMENTATION</a></li>
+                        <li><a href="Email.aspx">EMAIL</a></li>
+                        <li><a href="Canlender.aspx">CANLENDER</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <!-- *****************************************************************************************************************
+	 FOOTER
+	 ***************************************************************************************************************** -->
+        <div id="footerwrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <h4>Other</h4>
+                        <div class="hline-w"></div>
+                        <button type="button" class="btn btn-info btn-sm left">AdRotator</button>
+                        <button type="button" class="btn btn-theme btn-sm left">Master Page</button>
+
+
+                    </div>
+
+                    <div class="col-lg-4">
+                        <h4>Acknowledgements</h4>
+                        <div class="hline-w"></div>
+                        <p>
+                            Some Ave, 987,<br />
+                            23890, New York,<br />
+                            United States.<br />
+                        </p>
+                    </div>
+                    <div class="col-lg-2">
+                        <h4>Monash</h4>
+                        <div class="hline-w"></div>
+                        <p>
+                            <a href="#"><i class="fa fa-envelope""></i></a>
+                            <a href="#"><i class="fa fa-link"></i></a>
+                        </p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h4>Copyright</h4>
+                        <div class="hline-w"></div>
+                        <p>
+                            Some Ave, 987,<br />
+                            23890, New York,<br />
+                            United States.<br />
+                        </p>
+                    </div>
+
+                </div>
+                <!--/row -->
+            </div>
+            <!--/container -->
+        </div>
+        <!--/footerwrap -->
+
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/retina-1.1.0.js"></script>
+        <script src="assets/js/jquery.hoverdir.js"></script>
+        <script src="assets/js/jquery.hoverex.min.js"></script>
+        <script src="assets/js/jquery.prettyPhoto.js"></script>
+        <script src="assets/js/jquery.isotope.min.js"></script>
+        <script src="assets/js/custom.js"></script>
+
+        <asp:ContentPlaceHolder ID="ScriptHolder" runat="server">
+        </asp:ContentPlaceHolder>
+
+    </form>
+</body>
+</html>

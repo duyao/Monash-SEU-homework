@@ -1,0 +1,122 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="resources/css/StyleSheet.css" rel="stylesheet" type="text/css"/>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+        <title>Car Sales System</title>
+    </h:head>
+    <h:body>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Car Go</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+
+                </div><!--/.navbar-collapse -->
+            </div>
+        </nav>
+        <div class="container theme-showcase" role="main">
+
+            <!-- Main jumbotron for a primary marketing message or call to action -->
+            <div class="jumbotron">
+                <h1>Sign Up</h1>
+                <p>This is a page which helps you get your own account.</p>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <h:form class="form-horizontal" id="userForm">
+                <div class="form-group" >
+                    <h:outputLabel styleClass="control-label col-sm-2" value="Phone Number:" for="phonenumber" />
+                    <div class="col-sm-2">
+
+                        <h:inputText class="form-control" id="phonenumber" value="#{registerManagedBean.users.phonenumber}" title="Password" required="true" requiredMessage="The Phonenumber field is required.">
+                            <f:validator validatorId="landlineValidator"/>
+                        </h:inputText>
+                    </div>
+                    <div style="color: red;font-weight: bold;">used as your username</div>
+
+                    <h:message for="phonenumber" styleClass="alert alert-danger"/>
+                </div>
+                <div class="form-group" >
+                    <h:outputLabel styleClass="control-label col-sm-2" value="Password:" for="password" />
+                    <div class="col-sm-2">
+
+                        <h:inputSecret class="form-control" id="password" value="#{registerManagedBean.users.password}" title="Password" required="true" requiredMessage="The Password field is required.">
+                        </h:inputSecret>
+                    </div>
+                    <h:message for="password" styleClass="alert alert-danger"/>
+                </div>
+
+                <div class="form-group" >
+                    <h:outputLabel styleClass="control-label col-sm-2" value="Last Name:" for="lastname" />
+                    <div class="col-sm-2">
+                        <h:inputText class="form-control" id="lastname" value="#{registerManagedBean.users.lastname}" title="Lastname" required="true" requiredMessage="The Lastname field is required.">
+                            <f:validator validatorId="nameValidator"/>
+                        </h:inputText>
+                    </div>
+                    <h:message for="lastname" styleClass="alert alert-danger"/>
+                </div>
+                <div class="form-group" >
+                    <h:outputLabel styleClass="control-label col-sm-2" value="First Name:" for="firstname" />
+                    <div class="col-sm-2">
+                        <h:inputText id="firstname" class="form-control" value="#{registerManagedBean.users.firstname}" title="Firstname" required="true" requiredMessage="The Firstname field is required."> 
+                            <f:validator validatorId="nameValidator"/>
+                        </h:inputText>
+                    </div>
+                    <h:message for="firstname" styleClass="alert alert-danger"/>
+                </div>
+                <div class="form-group" >
+                    <h:outputLabel styleClass="control-label col-sm-2" value="Email:" for="email" />
+                    <div class="col-sm-2">
+                        <h:inputText id="email"  class="form-control" value="#{registerManagedBean.users.email}" title="Email" required="true" requiredMessage="The Email field is required.">
+                            <f:validator validatorId="emailValidator"/>
+                        </h:inputText>
+                    </div>
+                    <h:message for="email" styleClass="alert alert-danger"/>
+                </div>
+                <div class="form-group" >
+                    <h:outputLabel styleClass="control-label col-sm-2" value="Address:" for="address" />
+                    <div class="col-sm-2">
+                        <h:inputText id="address"  class="form-control" value="#{registerManagedBean.users.address}" title="Email" required="true" requiredMessage="The Email field is required.">
+                        </h:inputText>
+                    </div>
+                    <h:message  for="address" styleClass="alert alert-danger"/>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <h:selectOneMenu class="form-control" id ="select" value="#{registerManagedBean.users.type}" required="true" requiredMessage="Please input your type!">
+                            <f:selectItem itemValue="Please choose the role of users:" itemLabel="Please choose the role of users:" />
+                            <f:selectItem itemValue="Customer" itemLabel="Customer" />
+                            <f:selectItem itemValue="SalesPerson" itemLabel="SalesPerson" />
+                        </h:selectOneMenu>
+                    </div>
+                    <h:message  for="select" styleClass="alert alert-danger"/>
+
+                </div>
+                <div class="form-group" >
+                    <h:commandButton  class="btn btn-primary" id="confirm" value="OK"  action="#{registerManagedBean.addOrcheck()}" style="margin-left: 300px">
+                    </h:commandButton>
+                    <h:commandButton  class="btn btn-primary" id="reset" value="Reset" type="reset" style="margin-left: 50px" ></h:commandButton>
+
+
+                </div>
+
+
+            </h:form>
+        </div>
+
+    </h:body>
+</html>

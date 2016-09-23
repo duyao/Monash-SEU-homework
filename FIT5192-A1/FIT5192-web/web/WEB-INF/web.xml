@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+<!--    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>-->
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.xhtml</welcome-file>
+    </welcome-file-list>
+<!--    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>JDBCAuthentication</realm-name>
+        <form-login-config>
+            <form-login-page>/faces/login.xhtml</form-login-page>
+            <form-error-page>/faces/login.xhtml</form-error-page>
+        </form-login-config>
+    </login-config>-->
+<!--    <security-constraint>
+        <display-name>SalesPersonConstraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>SalesPerson</web-resource-name>
+            <description/>
+            <url-pattern>/SalesPerson/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>SalesPerson</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>CustomerConstraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>Customer</web-resource-name>
+            <description/>
+            <url-pattern>/Customer/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>Customer</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    <security-role>
+        <description/>
+        <role-name>SalesPerson</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>Customer</role-name>
+    </security-role>-->
+</web-app>

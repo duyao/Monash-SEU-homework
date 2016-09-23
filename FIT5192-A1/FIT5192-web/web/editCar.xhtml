@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="resources/css/StyleSheet.css" rel="stylesheet" type="text/css"/>
+        <h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="bootstrap-theme.css"></h:outputStylesheet>
+        <title>SalesPerson Page</title>
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Car Go</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!--<li><a href="SalesPerson/searchCar.xhtml">Car</a></li>-->
+                        <li><a href="faces/searchCar.xhtml">Car</a></li>
+
+                        <li><a href="SalesPerson/searchCustom.xhtml">Custom</a></li>
+                        <li><a href="#">Logout</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <input type="text" class="form-control" placeholder="Search..."/>
+
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-sm-9  col-md-10  main">
+                    <h1 class="page-header">  </h1>
+                    <h1 class="page-header">Edit Car Datails</h1>
+
+                    <h:form class="form-horizontal" id="carForm" enctype="multipart/form-data">
+                        <div class="form-group" >
+                            <h:outputLabel styleClass="control-label col-sm-2" value="VIN:" />
+                            <div class="col-sm-2">
+                                <h:inputText class="form-control" value="#{searchCarManagedBean.car.vin}" readonly="true">
+                                </h:inputText>
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            <h:outputLabel styleClass="control-label col-sm-2" value="Model No:" />
+                            <div class="col-sm-2">
+
+                                <h:inputText class="form-control" value="#{searchCarManagedBean.car.modelNo}" required="true" requiredMessage="The model no field is required.">
+                                </h:inputText>
+                            </div>
+                        </div>
+
+                        <div class="form-group" >
+                            <h:outputLabel styleClass="control-label col-sm-2" value="Model name:"  />
+                            <div class="col-sm-2">
+                                <h:inputText class="form-control" value="#{searchCarManagedBean.car.modelName}" required="true" requiredMessage="The Model name field is required.">
+                                </h:inputText>
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            <h:outputLabel styleClass="control-label col-sm-2" value="Manufacturer:"  />
+                            <div class="col-sm-2">
+                                <h:inputText  class="form-control" value="#{searchCarManagedBean.car.make}" required="true" requiredMessage="The Manufacturer field is required."> 
+                                </h:inputText>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel styleClass="control-label col-sm-2" value="Type:"  />
+                            <div class="col-sm-2">
+                                <h:selectOneMenu class="form-control"  value="#{searchCarManagedBean.car.type}" >
+                                    <f:selectItem itemValue="Sedan" itemLabel="Sedan" />
+                                    <f:selectItem itemValue="4 wheel drive" itemLabel="4 wheel drive" />
+                                    <f:selectItem itemValue="Truck" itemLabel="Truck" />
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            <h:outputLabel styleClass="control-label col-sm-2" value="Description:"  />
+                            <div class="col-sm-2">
+                                <h:inputTextarea  rows="3" class="form-control" value="#{searchCarManagedBean.car.description}" required="true" requiredMessage="The Description field is required.">
+                                </h:inputTextarea>
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            <h:outputLabel styleClass="control-label col-sm-2" value="Preview URL:" />
+                            <div class="col-sm-2">
+                                <h:inputText class="form-control" value="#{searchCarManagedBean.car.preview_url}" required="true" requiredMessage="The Preview URL field is required.">
+                                </h:inputText>
+                            </div>
+                            <h:message for="" styleClass="alert alert-danger"/>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel styleClass="control-label col-sm-2" value="Thumbnail:" />
+                            <h:graphicImage library="images" name="2.jpg" width="300" height="300" class="img-responsive" alt="Generic placeholder thumbnail"/>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel styleClass="control-label col-sm-2" value="Thumbnail:" />
+
+                            <h:inputFile id ="file" class="form-control-file" value="#{searchCarManagedBean.car.preview_url}" >
+                                <!--<f:validator validatorId="fileValidator"/>-->
+                                <f:ajax listener="#{searchCarManagedBean.save()}" />
+                            </h:inputFile>
+                        </div>
+                        <h:message for="file" styleClass="alert alert-danger"/>
+
+                        <div class="form-group" >
+                            <h:commandButton  class="btn btn-primary" id="confirm" value="Edit"  action="#{searchCarManagedBean.editCar()}" style="margin-left: 150px">
+                            </h:commandButton>
+                            <h:commandButton  class="btn btn-primary" id="reset" value="Reset" type="Reset" style="margin-left: 50px" ></h:commandButton>
+
+
+                        </div>
+
+
+                    </h:form>
+
+
+
+
+
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+    </h:body>
+</html>
+

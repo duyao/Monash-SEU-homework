@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <h:head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="resources/css/StyleSheet.css" rel="stylesheet" type="text/css"/>
+        <h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="bootstrap-theme.css"></h:outputStylesheet>
+        <title>Buy Car Page</title>
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Car Go</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!--<li><a href="SalesPerson/searchCar.xhtml">Car</a></li>-->
+                        <li><a href="faces/searchCar.xhtml">Car</a></li>
+
+                        <li><a href="SalesPerson/searchCustom.xhtml">Custom</a></li>
+                        <li><a href="#">Logout</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <input type="text" class="form-control" placeholder="Search..."/>
+
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-sm-9  col-md-10  main">
+                    <h1 class="page-header">  </h1>
+                    <h1 class="page-header">1. Your Car Datails</h1>
+
+                    <div class="row placeholders">
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <h:graphicImage library="images" name="#{buyCarManagedBean.initThumbnail()}" width="300" height="300" class="img-responsive" alt="Generic placeholder thumbnail"/>
+                            <h4>  $ #{buyCarManagedBean.initPrice()}</h4>
+
+                        </div>
+                        <div class="jumbotron">
+
+                            <h1>#{buyCarManagedBean.initVIN()}</h1>
+                            <label>Description : </label>
+                            <p>#{buyCarManagedBean.initDescription()}</p>
+                        </div>
+
+                    </div>
+                    <div class="table-responsive">
+                        <h:dataTable class="table table-striped"  value="#{buyCarManagedBean.init()}" var="c">
+                            <h:column>
+                                <f:facet name="header">VIN</f:facet>
+                                    #{c.vin}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Model Name</f:facet>
+                                    #{c.modelName}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Model No</f:facet>
+                                    #{c.modelNo}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Manufacturer</f:facet>
+                                    #{c.make}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Type</f:facet>
+                                    #{c.type}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Preview URL</f:facet>
+                                    #{c.preview_url}
+                            </h:column>
+
+                        </h:dataTable>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="table-responsive col-sm-9  col-md-10" style="margin-top:50px">
+            <h1 class="page-header">2. Choose One as SalesPerson</h1>      
+            <h:dataTable class="table table-striped" value="#{buyCarManagedBean.buyCar()}" var="people" >          
+                <h:column>
+                    <f:facet name="header">Uid</f:facet>
+                        #{people.uid}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Last Name</f:facet>
+                        #{people.lastname}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">First Name</f:facet>
+                        #{people.firstname}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                        #{people.email}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Phone Number</f:facet>
+                        #{people.phonenumber}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Address</f:facet>
+                        #{people.address}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Choose one as a SalesPerson</f:facet>
+                    <h:form>
+                        <h:commandButton  class="btn btn-xs btn-warning" action="#{buyCarManagedBean.chooseSalesPerson()}" value="Choose" actionListener="#{buyCarManagedBean.attributeListener}">
+                            <f:attribute name="uid" value="#{people.uid}"></f:attribute>
+                            <f:attribute name="vin" value="#{buyCarManagedBean.searchCarCusManagedBean.vin}"></f:attribute>
+                        </h:commandButton>
+                    </h:form>
+                </h:column>
+
+            </h:dataTable>
+
+        </div>
+
+
+
+
+    </h:body>
+</html>
+

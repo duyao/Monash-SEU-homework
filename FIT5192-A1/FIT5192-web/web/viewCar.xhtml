@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <h:head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="resources/css/StyleSheet.css" rel="stylesheet" type="text/css"/>
+        <h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="bootstrap-theme.css"></h:outputStylesheet>
+        <title>SalesPerson Page</title>
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Car Go</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!--<li><a href="SalesPerson/searchCar.xhtml">Car</a></li>-->
+                        <li><a href="faces/searchCar.xhtml">Car</a></li>
+
+                        <li><a href="SalesPerson/searchCustom.xhtml">Custom</a></li>
+                        <li><a href="#">Logout</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <input type="text" class="form-control" placeholder="Search..."/>
+
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-sm-9  col-md-10  main">
+                    <h1 class="page-header">  </h1>
+                    <h1 class="page-header">Car Datails</h1>
+
+                    <div class="row placeholders">
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <h:graphicImage library="images" name="#{searchCarManagedBean.car.thumbnail}" width="300" height="300" class="img-responsive" alt="Generic placeholder thumbnail"/>
+                            <h4>  $ #{searchCarManagedBean.car.price}</h4>
+
+                        </div>
+                        <div class="jumbotron">
+                            
+                            <h1>#{searchCarManagedBean.car.vin}</h1>
+                            <label>Description : </label>
+                            <p>#{searchCarManagedBean.car.description}</p>
+                        </div>
+
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped"  >
+                            <thead>
+                                <tr>
+                                    <th>VIN</th>
+                                    <th>Model Name</th>
+                                    <th>Model No</th>
+                                    <th>Manufacturer</th>
+                                    <th>Type</th>
+                                    <th>Preview URL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#{searchCarManagedBean.car.vin}</td>
+                                    <td>#{searchCarManagedBean.car.modelName}</td>
+                                    <td>#{searchCarManagedBean.car.modelNo}</td>
+                                    <td>#{searchCarManagedBean.car.make}</td>
+                                    <td>#{searchCarManagedBean.car.type}</td>
+                                    <td>#{searchCarManagedBean.car.preview_url}</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+    </h:body>
+</html>
+

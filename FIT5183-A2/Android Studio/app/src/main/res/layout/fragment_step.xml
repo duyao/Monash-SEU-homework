@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_event_note_black_36dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/curDate_fragment_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="s"
+            android:layout_gravity="center"
+            android:textSize="30sp" />
+
+
+    </LinearLayout>
+
+
+
+    <ListView
+        android:id="@+id/step_list"
+        android:layout_width="wrap_content"
+        android:layout_height="380dp"
+        android:layout_weight="1.58"
+        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_fiber_new_black_24dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05"
+            android:text="Type new steps you have taken"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+
+
+    <EditText
+        android:id="@+id/stepText_fragment"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="50sp" />
+
+    <Button
+        android:id="@+id/step_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:text="add" />
+</LinearLayout>

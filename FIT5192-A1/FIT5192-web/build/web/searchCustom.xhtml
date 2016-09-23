@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="bootstrap-theme.css"></h:outputStylesheet>
+        <title>SalesPerson Page</title>
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Car Go</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Logout</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <input type="text" class="form-control" placeholder="Search..."/>
+
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-md-11 main">
+                    <h1 class="page-header">  </h1>
+                    <h1 class="page-header">User Information</h1>
+                    <div class="row head">
+                        <h:form style="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label">Uid:
+                                </label>
+                                <div class="col-sm-2">
+                                    <h:inputText  class="form-control" value = "#{searchCustomerManagedBean.uid}">
+                                    </h:inputText>
+                                </div>
+
+                                <label class="col-sm-1 control-label">Last Name:
+                                </label>
+                                <div class="col-sm-2">
+                                    <h:inputText  class="form-control" value = "#{searchCustomerManagedBean.lastName}">
+                                    </h:inputText>
+                                </div>
+
+                                <label class="col-sm-1 control-label">First Name:
+                                </label>
+                                <div class="col-sm-2">
+                                    <h:inputText  class="form-control" value = "#{searchCustomerManagedBean.firstName}">
+                                    </h:inputText>
+                                </div>
+
+                                <label class="col-sm-1 control-label">E-mail:
+                                </label>
+                                <div class="col-sm-2">
+                                    <h:inputText  class="form-control" value = "#{searchCustomerManagedBean.email}">
+                                    </h:inputText>
+                                </div>
+
+                            </div>
+                            <div class="form-group" >
+                                <label class="col-sm-1 control-label" style="margin-left: 600px">Type:
+                                </label>
+                                <div class="col-sm-3">
+                                    <h:selectOneMenu class="form-control" id ="salesperson_select" value = "#{searchCustomerManagedBean.type}">
+                                        <f:selectItem itemValue="--Please choose types of person--" itemLabel="--Please choose types of person--" />
+                                        <f:selectItem itemValue="Customer" itemLabel="Customer" />
+                                        <f:selectItem itemValue="SalesPerson" itemLabel="SalesPerson" />
+                                    </h:selectOneMenu>
+
+                                </div>
+                                <div class="col-sm-2">
+                                    <h:commandButton  class="form-control btn btn-primary" value="Search"  action="#{searchCustomerManagedBean.searchPara()}" />
+                                </div>
+
+                            </div>
+
+                        </h:form>
+
+
+                    </div>
+
+
+                    <div class="table-responsive" style="margin-top:50px">
+                        <h:dataTable class="table table-striped" value="#{searchCustomerManagedBean.searchPara()}" var="people" >          
+                            <h:column>
+                                <f:facet name="header">Uid</f:facet>
+                                    #{people.uid}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Last Name</f:facet>
+                                    #{people.lastname}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">First Name</f:facet>
+                                    #{people.firstname}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Email</f:facet>
+                                    #{people.email}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Phone Number</f:facet>
+                                    #{people.phonenumber}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Address</f:facet>
+                                    #{people.address}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Type</f:facet>
+                                    #{people.type}
+                            </h:column>
+
+
+
+                        </h:dataTable>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </h:body>
+</html>
+

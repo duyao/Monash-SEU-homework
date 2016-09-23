@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">    
+    <h:head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="resources/css/StyleSheet.css" rel="stylesheet" type="text/css"/>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+        <title>Car Sales System</title>
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Car Go</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+
+                </div><!--/.navbar-collapse -->
+            </div>
+        </nav>
+        <div class="container theme-showcase" role="main">
+
+            <!-- Main jumbotron for a primary marketing message or call to action -->
+            <div class="jumbotron">
+                <h1>Sign In</h1>
+                <p>This is a page which gets access to the car sales system.</p>
+            </div>
+        </div>
+        <div class="container">
+
+            <h:form class="form-horizontal center-block">
+                <h2 class="form-signin-heading">Please sign in</h2>
+                <div class="form-group">
+                    <label  class="col-xs-2 control-label">Phone Number</label>
+                    <h:message for="username" styleClass="alert alert-danger"/>
+                    <div class="col-sm-2">
+                        <h:inputText id="username" label="Name" class="form-control" value="#{loginMB.username}" required="true" requiredMessage="You must enter your phone number!"></h:inputText> 
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label  class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-2">
+                        <h:inputSecret id="password"  class="form-control" value="#{loginMB.password}" required="true" requiredMessage="You must enter your password!">
+                        </h:inputSecret>
+                    </div>
+                    <h:message for="password" class="alert alert-danger"/>
+
+                </div>
+                <div class="form-group" >
+                    <h:commandButton class="btn btn-primary" value = "Sign in" action ="#{loginMB.login()}" style="margin-left: 200px"></h:commandButton>
+                    <h:commandButton  class="btn btn-primary" id="reset" value="Reset" type="reset" style="margin-left: 50px" ></h:commandButton>
+                </div>
+            </h:form>      
+
+        </div> <!-- /container -->
+    </h:body>
+</html>

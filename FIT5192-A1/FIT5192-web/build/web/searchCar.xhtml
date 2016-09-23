@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="bootstrap-theme.css"></h:outputStylesheet>
+        <title>SalesPerson Page</title>
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Car Go</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Logout</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <input type="text" class="form-control" placeholder="Search..."/>
+
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-md-11 main" >
+                    <h1 class="page-header">  </h1>
+                    <h1 class="page-header"> Car Information 
+                        <div class="row head">
+                            <h:form style="form-horizontal">
+                                <div class="col-sm-2">
+                                    <h:commandButton  class="form-control btn btn-success" value="Add a Car"  action="#{searchCarManagedBean.initAddcar()}" />
+                                </div>
+                            </h:form>
+                        </div>
+                    </h1>
+
+
+
+
+                    <div class="row head">
+                        <h:form style="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label">Model Name:
+                                </label>
+                                <div class="col-sm-2">
+                                    <h:inputText id="salesperson_ModelName" class="form-control" value = "#{searchCarManagedBean.modelName}">
+                                    </h:inputText>
+                                </div>
+
+                                <label class="col-sm-1 control-label">Model No:
+                                </label>
+                                <div class="col-sm-2">
+                                    <h:inputText id="salesperson_ModelNo" class="form-control" value = "#{searchCarManagedBean.modelNo}">
+                                    </h:inputText>
+                                </div>
+
+                                <label class="col-sm-1 control-label">Make:
+                                </label>
+                                <div class="col-sm-2">
+                                    <h:inputText id="salesperson_make" class="form-control" value = "#{searchCarManagedBean.make}">
+                                    </h:inputText>
+                                </div>
+                                <label class="col-sm-1 control-label">Type:
+                                </label>
+                                <div class="col-sm-2">
+                                    <h:selectOneMenu class="form-control" id ="salesperson_select" value = "#{searchCarManagedBean.type}">
+                                        <f:selectItem itemValue="--Please choose types of car--" itemLabel="--Please choose types of car--" />
+                                        <f:selectItem itemValue="Sedan" itemLabel="Sedan" />
+                                        <f:selectItem itemValue="4 wheel drive" itemLabel="4 wheel drive" />
+                                        <f:selectItem itemValue="Truck" itemLabel="Truck" />
+                                    </h:selectOneMenu>
+
+                                </div>
+
+
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="col-sm-2">
+                                    <h:commandButton  class="form-control btn btn-primary" value="Search"  action="#{searchCarManagedBean.searchPara()}" />
+                                </div>
+                            </div>
+                            
+
+                        </h:form>
+
+
+                    </div>
+
+
+                    <div class="table-responsive" style="margin-top:50px">
+                        <h:dataTable class="table table-striped" value="#{searchCarManagedBean.searchPara()}" var="cars" >          
+                            <h:column>
+                                <f:facet name="header">VIN</f:facet>
+                                    #{cars.vin}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Model Name</f:facet>
+                                    #{cars.modelName}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Make</f:facet>
+                                    #{cars.make}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">View </f:facet>
+                                <h:form>
+                                    <h:commandButton  class="btn btn-xs btn-info" action="#{searchCarManagedBean.viewCar()}" value="View" actionListener="#{searchCarManagedBean.attributeListener}">
+                                        <f:attribute name="vin" value="#{cars.vin}"></f:attribute>
+                                    </h:commandButton>
+                                </h:form>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Edit</f:facet>
+                                <h:form>
+                                    <h:commandButton  class="btn btn-xs btn-warning" action="#{searchCarManagedBean.initEditCar()}" value="Edit" actionListener="#{searchCarManagedBean.attributeListener}">
+                                        <f:attribute name="vin" value="#{cars.vin}"></f:attribute>
+                                    </h:commandButton>
+                                </h:form>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Delete</f:facet>
+                                <h:form>
+                                    <h:commandButton class="btn btn-xs btn-danger" onclick="return confirm('Are you sure?')" action="#{searchCarManagedBean.deleteCar()}" value="Delete" actionListener="#{searchCarManagedBean.attributeListener}">
+                                        <f:attribute name="vin" value="#{cars.vin}"></f:attribute>
+                                    </h:commandButton>
+                                </h:form>
+                            </h:column>
+
+
+
+
+                        </h:dataTable>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </h:body>
+</html>
+

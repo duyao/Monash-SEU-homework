@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <h:head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="resources/css/StyleSheet.css" rel="stylesheet" type="text/css"/>
+        <h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="bootstrap-theme.css"></h:outputStylesheet>
+        <title>Buy Car Page</title>
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Car Go</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!--<li><a href="SalesPerson/searchCar.xhtml">Car</a></li>-->
+                        <li><a href="faces/searchCar.xhtml">Car</a></li>
+
+                        <li><a href="SalesPerson/searchCustom.xhtml">Custom</a></li>
+                        <li><a href="#">Logout</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <input type="text" class="form-control" placeholder="Search..."/>
+
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-sm-9  col-md-10  main">
+                    <h1 class="page-header">  </h1>
+                    <h1 class="page-header">1. Your Car Datails</h1>
+
+                    <div class="row placeholders">
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <h:graphicImage library="images" name="#{buyCarManagedBean.car.thumbnail}" width="300" height="300" class="img-responsive" alt="Generic placeholder thumbnail"/>
+                            <h4>  $ #{buyCarManagedBean.car.price}</h4>
+
+                        </div>
+                        <div class="jumbotron">
+
+                            <h1>#{buyCarManagedBean.vin}</h1>
+                            <label>Description : </label>
+                            <p>#{buyCarManagedBean.car.description}</p>
+                        </div>
+
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped"  >
+                            <thead>
+                                <tr>
+                                    <th>VIN</th>
+                                    <th>Model Name</th>
+                                    <th>Model No</th>
+                                    <th>Manufacturer</th>
+                                    <th>Type</th>
+                                    <th>Preview URL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#{buyCarManagedBean.car.vin}</td>
+                                    <td>#{buyCarManagedBean.car.modelName}</td>
+                                    <td>#{buyCarManagedBean.car.modelNo}</td>
+                                    <td>#{buyCarManagedBean.car.make}</td>
+                                    <td>#{buyCarManagedBean.car.type}</td>
+                                    <td>#{buyCarManagedBean.car.preview_url}</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="table-responsive col-sm-9  col-md-10" style="margin-top:50px">
+            <h1 class="page-header">2. SalesPerson Details</h1> 
+            <h:dataTable class="table table-striped" value="#{buyCarManagedBean.initSalePerson()}" var="people" >          
+                <h:column>
+                    <f:facet name="header">Uid</f:facet>
+                        #{buyCarManagedBean.salesPerson.uid}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Last Name</f:facet>
+                        #{people.lastname}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">First Name</f:facet>
+                        #{people.firstname}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                        #{people.email}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Phone Number</f:facet>
+                        #{people.phonenumber}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Address</f:facet>
+                        #{people.address}
+                </h:column>
+                
+
+            </h:dataTable>
+
+        </div>
+        <div class="table-responsive col-sm-9  col-md-10" style="margin-top:50px">
+            <h1 class="page-header">3. Go To Pay</h1> 
+            <h:form>
+                <h:commandButton  class="btn btn-primary" id="confirm" value="Pay" action="#{buyCarManagedBean.pay()}" onclick="return confirm('You have paid successfully!')">
+                </h:commandButton>
+            </h:form>
+        </div>
+
+
+
+
+    </h:body>
+</html>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_calorie_goal"
+            android:title="Calorie Goal"
+            android:icon="@drawable/ic_setting_light"/>
+        <item
+            android:id="@+id/nav_diet"
+            android:title="My Daily Diet"
+            android:icon="@drawable/ic_perm_data_setting_black_36dp"/>
+        <item
+            android:id="@+id/nav_steps"
+            android:title="Steps"
+            android:icon="@drawable/ic_directions_run_black_36dp"/>
+        <item
+            android:id="@+id/nav_track_calorie"
+            android:title="Track Calorie"
+            android:icon="@drawable/ic_track_changes_black_36dp"/>
+        <item
+            android:id="@+id/nav_progress_report"
+            android:title="Progress Report"
+            android:icon="@drawable/ic_receipt_black_36dp"/>
+
+        <item
+            android:id="@+id/nav_map"
+            android:title="Map"
+            android:icon="@drawable/ic_map_black_36dp"/>
+
+    </group>
+
+
+
+</menu>

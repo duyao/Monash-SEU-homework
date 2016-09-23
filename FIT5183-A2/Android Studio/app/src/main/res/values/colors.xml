@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+    <color name="colorPrimary">#5C635C</color>
+    <color name="colorPrimaryDark">#101210</color>
+    <!--DED1D5,FF4081,CC62BE-->
+
+    <color name="colorAccent">#F5C6EF</color>
+</resources>
+
+
+
+
+<!--<resources>-->
+    <!--<color name="colorPrimary">#545254</color>-->
+    <!--<color name="colorPrimaryDark">#DED1D5</color>-->
+     <!--&lt;!&ndash;DED1D5,FF4081,CC62BE&ndash;&gt;-->
+
+    <!--<color name="colorAccent">#F5C6EF</color>-->
+<!--</resources>-->
